@@ -1,16 +1,24 @@
 import React from "react";
+import luluLogo from "../assets/images/lulu1.jpg";
+import nestoLogo from "../assets/images/nesto.png";
+import almayasLogo from "../assets/images/almayas.png";
+import choithramsLogo from "../assets/images/choithramas.jpg";
+import grandioseLogo from "../assets/images/Grandiose.png";
+import granteLogo from "../assets/images/grante.jpg";
+import spinneysLogo from "../assets/images/spinneys.jpg";
+import carrefourLogo from "../assets/images/carref.jpg";
 
 export default function KeyAccountsCarousel() {
   // Demo logo images — replace these paths later with your real logos
   const logos = [
-    "/assets/images1/lulu1.jpg",
-    "/assets/images1/nesto.png",
-    "/assets/images1/almayas.png",
-    "/assets/images1/choithramas.jpg",
-    "/assets/images1/Grandiose.png",
-    "/assets/images1/grante.jpg",
-    "/assets/images1/spinneys.jpg",
-    "/assets/images1/carref.jpg",
+    luluLogo,
+    nestoLogo,
+    almayasLogo,
+    choithramsLogo,
+    grandioseLogo,
+    granteLogo,
+    spinneysLogo,
+    carrefourLogo,
   ];
 
   // Double the list for continuous infinite scrolling

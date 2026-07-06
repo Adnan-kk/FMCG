@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { CheckCircle2, Award, Calendar, HelpCircle } from "lucide-react";
 import { ABOUT_CONTENT, APP_CONTACT } from "../data";
+import AboutImage from "../assets/images/About.jpg";
 
 interface AboutProps {
   onBookClick: () => void;
@@ -72,7 +73,7 @@ export default function About({ onBookClick }: AboutProps) {
             {/* Main Picture Frame */}
             <div className="relative border border-slate-200 p-3 bg-white shadow-xl">
               <img
-                src="/assets/images1/About.jpg"
+                src={AboutImage}
                 alt="Divya FMCG Consultancy UAE"
                 className="w-full h-[360px] md:h-[450px] object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"

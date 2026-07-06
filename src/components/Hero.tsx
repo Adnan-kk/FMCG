@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { MessageSquare, Calendar, ChevronRight, Award, Shield, Users } from "lucide-react";
 import { HERO_CONTENT, APP_CONTACT } from "../data";
+import BannerImage from "/assets/images/Baner.jpg";
 
 interface HeroProps {
   onBookClick: () => void;
@@ -12,7 +13,7 @@ export default function Hero({ onBookClick }: HeroProps) {
       {/* Background Graphic Overlay */}
       <div className="absolute inset-0 z-0 opacity-60">
         <img
-          src="/assets/images1/Baner.jpg"
+          src={BannerImage}
           alt="Dubai Premium Business District"
           className="w-full h-full object-cover filter grayscale contrast-125"
           referrerPolicy="no-referrer"
