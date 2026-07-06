@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { MessageSquare, Calendar, ChevronRight, Award, Shield, Users } from "lucide-react";
 import { HERO_CONTENT, APP_CONTACT } from "../data";
-import BannerImage from "/assets/images/Baner.jpg";
+import BannerImage from "../assets/images/Baner.jpg";
 
 interface HeroProps {
   onBookClick: () => void;
