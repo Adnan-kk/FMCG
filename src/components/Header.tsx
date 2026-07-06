@@ -1,0 +1,173 @@
+import React, { useState, useEffect } from "react";
+import { Phone, MessageSquare, Menu, X, ArrowRight } from "lucide-react";
+import { APP_CONTACT } from "../data";
+
+interface HeaderProps {
+  onBookClick: () => void;
+}
+
+export default function Header({ onBookClick }: HeaderProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "About Us", href: "#about", important: true },
+    { label: "Services", href: "#services", important: true },
+    { label: "Market Access", href: "#channels", important: true },
+    { label: "Categories", href: "#categories", important: false },
+    { label: "Compliance", href: "#compliance", important: false },
+  ];
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 80; // height of fixed header
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0A2540] shadow-md py-4 text-white"
+          : "bg-transparent py-6 text-white"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo Brand area */}
+          <a
+            href="#"
+            onClick={(e) => handleLinkClick(e, "#")}
+            className="flex flex-col select-none"
+          >
+            <span className="font-extrabold text-base sm:text-lg lg:text-base xl:text-xl tracking-wider uppercase text-white flex items-center gap-1.5 xl:gap-2">
+              FMCG <span className="text-[#059669] font-semibold text-xs lg:text-[11px] xl:text-sm border-l border-slate-500 pl-1.5 xl:pl-2">SUPPORT UAE</span>
+            </span>
+            <span className="text-[7.5px] sm:text-[8.5px] lg:text-[7.5px] xl:text-[9px] uppercase tracking-[0.2em] xl:tracking-[0.25em] text-slate-300 mt-0.5 whitespace-nowrap">
+              Strategic Consulting & Execution
+            </span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className={`text-xs xl:text-sm font-semibold tracking-wide text-slate-200 hover:text-[#059669] transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#059669] hover:after:w-full after:transition-all after:duration-300 ${
+                  link.important ? "inline-block" : "hidden xl:inline-block"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop Call to Actions */}
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+            <a
+              href={APP_CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 xl:px-4 py-2 rounded-none transition-all duration-200 shadow-sm whitespace-nowrap"
+            >
+              <MessageSquare size={13} className="xl:w-4 xl:h-4" />
+              <span>WhatsApp</span>
+            </a>
+            <button
+              onClick={onBookClick}
+              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold bg-transparent border border-white hover:bg-white hover:text-[#0A2540] px-3 xl:px-4 py-2 rounded-none transition-all duration-200 whitespace-nowrap"
+            >
+              <span>Book Consultation</span>
+              <ArrowRight size={11} className="xl:w-3.5 xl:h-3.5" />
+            </button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="flex items-center lg:hidden space-x-3">
+            <a
+              href={APP_CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+              title="Chat on WhatsApp"
+            >
+              <MessageSquare size={20} />
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-md hover:bg-slate-800 text-slate-200 focus:outline-none"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-screen bg-[#0A2540] border-t border-slate-800 py-4" : "max-h-0 py-0"
+        }`}
+      >
+        <div className="px-4 pt-2 pb-6 space-y-3">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className="block px-3 py-2 text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800 transition-all"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="pt-4 border-t border-slate-800 flex flex-col space-y-3 px-3">
+            <a
+              href={APP_CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-center items-center gap-2 w-full text-center font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3 transition-colors"
+            >
+              <MessageSquare size={18} />
+              <span>WhatsApp Us Now</span>
+            </a>
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onBookClick();
+              }}
+              className="w-full text-center font-bold bg-transparent border border-white text-white hover:bg-white hover:text-[#0A2540] py-3 transition-all"
+            >
+              Book Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
