@@ -19,7 +19,7 @@ export default function App() {
   const [prefilledMessage, setPrefilledMessage] = useState("");
   const formRef = useRef<HTMLDivElement | null>(null);
 
-  // Helper to scroll smoothly to the consultation intake form with correct offset
+  // Helper to scroll smoothly to the growth enquiry intake form with correct offset
   const scrollToForm = () => {
     if (formRef.current) {
       const offset = 80; // matches header height
@@ -35,9 +35,9 @@ export default function App() {
     }
   };
 
-  // General Consultation Booking action
+  // General Growth Enquiry Booking action
   const handleGeneralBook = () => {
-    setPrefilledMessage("Hi Divya, I would like to schedule a free diagnostic consultation to discuss our FMCG growth roadmap in the UAE.");
+    setPrefilledMessage("Hello, I would like to schedule a free diagnostic growth enquiry to discuss our FMCG growth roadmap in the UAE.");
     scrollToForm();
   };
 
@@ -49,24 +49,24 @@ export default function App() {
 
   // Channel-specific booking trigger
   const handleChannelBook = (channelName: string) => {
-    setPrefilledMessage(`Hi Divya, I am interested in exploring listing opportunities specifically for: "${channelName}" stores in the UAE.`);
+    setPrefilledMessage(`Hello, I am interested in exploring listing opportunities specifically for: "${channelName}" stores in the UAE.`);
     scrollToForm();
   };
 
   // Category-specific booking trigger
   const handleCategoryBook = (categoryName: string) => {
-    setPrefilledMessage(`Hi Divya, we are looking for strategic consultancy and account activation for our: "${categoryName}" product line in the UAE retail market.`);
+    setPrefilledMessage(`Hello, we are looking for strategic business support and account activation for our: "${categoryName}" product line in the UAE retail market.`);
     scrollToForm();
   };
 
   // Engagement model-specific booking trigger
   const handleEngagementBook = (modelName: string) => {
-    setPrefilledMessage(`Hi Divya, we are interested in discussing cooperation terms for your: "${modelName}" engagement model.`);
+    setPrefilledMessage(`Hello, we are interested in discussing cooperation terms for your: "${modelName}" engagement model.`);
     scrollToForm();
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
+    <div className="min-h-screen bg-[var(--pearl-white)] font-sans antialiased text-[var(--dark-navy)]">
       
       {/* Header bar with responsive corporate links */}
       <Header onBookClick={handleGeneralBook} />
@@ -76,7 +76,7 @@ export default function App() {
         {/* Hero section with backdrop imagery */}
         <Hero onBookClick={handleGeneralBook} />
 
-        {/* Narrative Strategic consultancy profile */}
+        {/* Narrative Strategic business support profile */}
         <About onBookClick={handleGeneralBook} />
 
         {/* Premium infinite auto-scrolling Key Accounts expertise carousel */}
@@ -103,7 +103,7 @@ export default function App() {
         {/* Government clearance compliance guidelines */}
         <Compliance />
 
-        {/* Dynamic Consultation Booking Intake & Direct Profile Desk */}
+        {/* Dynamic Growth Enquiry Booking Intake & Direct Profile Desk */}
         <ContactForm 
           prefilledMessage={prefilledMessage} 
           onClearPrefill={() => setPrefilledMessage("")}
@@ -122,20 +122,20 @@ export default function App() {
           href={APP_CONTACT.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group"
-          title="Direct Consultant WhatsApp Chat"
+          className="p-3.5 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group"
+          title="Direct WhatsApp Chat"
         >
           <MessageSquare size={20} className="shrink-0" />
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-bold text-xs uppercase tracking-wider pl-0 group-hover:pl-2 whitespace-nowrap">
-            Chat with Divya
+            Chat with FMCG Support Team
           </span>
         </a>
 
         {/* Floating Call to Action */}
         <button
           onClick={handleGeneralBook}
-          className="p-3.5 bg-[#0a2540] hover:bg-[#11385f] text-emerald-400 rounded-full shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group"
-          title="Open Consultation Intake Form"
+          className="p-3.5 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-[var(--soft-aqua-blue)] rounded-full shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group"
+          title="Open Growth Enquiry Intake Form"
         >
           <Calendar size={20} className="shrink-0" />
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-bold text-xs uppercase tracking-wider text-white pl-0 group-hover:pl-2 whitespace-nowrap">

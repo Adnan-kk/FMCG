@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0A2540] text-white border-t border-slate-800 relative">
+    <footer className="bg-[var(--primary-blue)] text-white border-t border-slate-800 relative">
       
       {/* Decorative vertical divider line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-800/40 hidden lg:block pointer-events-none"></div>
@@ -23,10 +23,10 @@ export default function Footer() {
           {/* Column 1: Brand & Subtitle (4 columns) */}
           <div className="lg:col-span-4 text-left space-y-4">
             <span className="block mb-4 font-extrabold text-xl tracking-wider uppercase text-white">
-              FMCG <span className="text-[#059669] font-medium text-sm">SUPPORT UAE</span>
+              FMCG <span className="text-[var(--soft-aqua-blue)] font-medium text-sm">SUPPORT UAE</span>
             </span>
             <p className="text-xs text-slate-300 font-light leading-relaxed">
-              Bespoke market entry, retail listing activation, and continuous operational key account management consultancy. Actively boosting brand equity and commercial distribution across major hypermarkets and Cooperatives.
+              Bespoke market entry, retail listing activation, and continuous operational key account management business support. Actively boosting brand equity and commercial distribution across major hypermarkets and Cooperatives.
             </p>
             <div className="pt-2 text-xs text-slate-400 font-light">
                Authorized Liaison Area: All 7 UAE Emirates
@@ -35,7 +35,7 @@ export default function Footer() {
 
           {/* Column 2: Navigation Links (2 columns) */}
           <div className="lg:col-span-2 text-left space-y-4">
-            <h5 className="text-xs uppercase font-bold text-[#059669] tracking-widest">Navigation</h5>
+            <h5 className="text-xs uppercase font-bold text-[var(--soft-aqua-blue)] tracking-widest">Navigation</h5>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
               {["About Us", "Services", "Market Access", "Categories", "Compliance"].map((label, idx) => {
                 const anchors = ["#about", "#services", "#channels", "#categories", "#compliance"];
@@ -54,7 +54,7 @@ export default function Footer() {
                           window.scrollTo({ top: position, behavior: "smooth" });
                         }
                       }}
-                      className="hover:text-emerald-400 transition-colors"
+                      className="hover:text-[var(--soft-aqua-blue)] transition-colors"
                     >
                       {label}
                     </a>
@@ -78,19 +78,19 @@ export default function Footer() {
 
           {/* Column 4: Contact Information Desk (3 columns) */}
           <div className="lg:col-span-3 text-left space-y-4">
-            <h5 className="text-xs uppercase font-bold text-[#059669] tracking-widest">Consultant Desk</h5>
+            <h5 className="text-xs uppercase font-bold text-[var(--soft-aqua-blue)] tracking-widest">Business Support Desk</h5>
             <div className="space-y-3 text-xs text-slate-300 font-light">
               <p className="font-semibold text-white">{APP_CONTACT.name}</p>
-              <p className="text-slate-400 text-[10px] uppercase font-bold">FMCG Strategic Consultant</p>
+              <p className="text-slate-400 text-[10px] uppercase font-bold">FMCG Business Support Team</p>
               <div className="flex items-center gap-2 pt-1">
-                <Phone size={12} className="text-[#059669]" />
-                <a href={`tel:${APP_CONTACT.phone}`} className="hover:text-emerald-400">
+                <Phone size={12} className="text-[var(--soft-aqua-blue)]" />
+                <a href={`tel:${APP_CONTACT.phone}`} className="hover:text-[var(--soft-aqua-blue)]">
                   {APP_CONTACT.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MessageSquare size={12} className="text-[#059669]" />
-                <a href={APP_CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 underline font-medium">
+                <MessageSquare size={12} className="text-[var(--soft-aqua-blue)]" />
+                <a href={APP_CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--soft-aqua-blue)] underline font-medium">
                   WhatsApp Support
                 </a>
               </div>
@@ -107,7 +107,7 @@ export default function Footer() {
               href="https://pixelprosolution.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-emerald-400 transition-colors"
+              className="hover:text-[var(--soft-aqua-blue)] transition-colors"
             >
               PixelPro Solution
             </a>

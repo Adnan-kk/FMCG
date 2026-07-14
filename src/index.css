@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
+:root {
+  --primary-blue: #244A83;
+  --soft-aqua: #DCEFF1;
+  --soft-aqua-blue: #DCEFF1;
+  --pearl-white: #F8FAFA;
+  --dark-navy: #102033;
+  --primary-blue-hover: #1A3766;
+  --pure-white: #FFFFFF;
+  --muted-text: #53657D;
+  --visible-border: #C7D5E4;
+}
+
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-primary-blue: #244A83;
+  --color-soft-aqua-blue: #DCEFF1;
+  --color-pearl-white: #F8FAFA;
+  --color-dark-navy: #102033;
+  --color-primary-blue-hover: #1A3766;
 }

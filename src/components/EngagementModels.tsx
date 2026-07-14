@@ -24,20 +24,20 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
   };
 
   return (
-    <section id="engagement" className="py-24 bg-white border-b border-slate-100 relative">
+    <section id="engagement" className="py-24 bg-[var(--pearl-white)] border-b border-[var(--visible-border)] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-px bg-[#059669]"></span>
-            <span className="text-xs font-bold tracking-widest text-[#059669] uppercase">Cooperation Structures</span>
-            <span className="w-8 h-px bg-[#059669]"></span>
+            <span className="w-8 h-px bg-[var(--primary-blue)]"></span>
+            <span className="text-xs font-bold tracking-widest text-[var(--primary-blue)] uppercase">Cooperation Structures</span>
+            <span className="w-8 h-px bg-[var(--primary-blue)]"></span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0a2540] tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] tracking-tight">
             Flexible & Scalable Engagement Models
           </h2>
-          <p className="mt-4 text-slate-500 font-light text-sm sm:text-base">
+          <p className="mt-4 text-[var(--muted-text)] font-light text-sm sm:text-base">
             We adapt to your budget, in-house team capacity, and growth stage. Choose from tactical sprint projects to dedicated monthly strategic retainer consultancies.
           </p>
         </div>
@@ -45,27 +45,27 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
         {/* Engagement Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {ENGAGEMENT_MODELS.map((model, idx) => {
-            const isHighlight = idx === 2; // Monthly consultancy is the standard best-seller
+            const isHighlight = idx === 2; // Monthly business support is the standard best-seller
             return (
               <div
                 key={model.title}
                 className={`border text-left p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
                   isHighlight
-                    ? "bg-[#0a2540] text-white border-[#059669] shadow-xl"
-                    : "bg-slate-50 text-slate-800 border-slate-200 hover:border-[#0a2540] hover:shadow-md"
+                    ? "bg-[var(--primary-blue)] text-white border-[var(--primary-blue)] shadow-xl"
+                    : "bg-[var(--pearl-white)] text-[var(--dark-navy)] border-[var(--visible-border)] hover:border-[var(--primary-blue)] hover:shadow-md"
                 }`}
               >
                 {/* Visual Popular Badge */}
                 {isHighlight && (
-                  <div className="absolute top-0 right-0 bg-[#059669] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1">
+                  <div className="absolute top-0 right-0 bg-[var(--primary-blue)] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1">
                     Recommended Model
                   </div>
                 )}
 
                 <div>
                   {/* Icon */}
-                  <div className={`p-3 inline-flex mb-6 ${isHighlight ? "bg-[#059669] text-white" : "bg-slate-200 text-[#0a2540]"}`}>
-                    {getIcon(idx, isHighlight ? "text-white" : "text-[#0a2540]")}
+                  <div className={`p-3 inline-flex mb-6 ${isHighlight ? "bg-[var(--primary-blue)] text-white" : "bg-slate-200 text-[var(--primary-blue)]"}`}>
+                    {getIcon(idx, isHighlight ? "text-white" : "text-[var(--primary-blue)]")}
                   </div>
 
                   {/* Title */}
@@ -74,16 +74,16 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-xs sm:text-sm font-light leading-relaxed mb-6 ${isHighlight ? "text-slate-300" : "text-slate-500"}`}>
+                  <p className={`text-xs sm:text-sm font-light leading-relaxed mb-6 ${isHighlight ? "text-slate-300" : "text-[var(--muted-text)]"}`}>
                     {model.description}
                   </p>
                 </div>
 
                 {/* Suitability and Actions */}
                 <div>
-                  <div className={`p-4 border-t mb-6 ${isHighlight ? "border-slate-800 bg-slate-900/40" : "border-slate-200 bg-white"}`}>
-                    <span className="text-[9px] uppercase tracking-wider font-bold block mb-1 text-[#059669]">Best Suited For:</span>
-                    <p className={`text-xs font-light leading-normal ${isHighlight ? "text-slate-200" : "text-slate-600"}`}>
+                  <div className={`p-4 border-t mb-6 ${isHighlight ? "border-slate-800 bg-slate-900/40" : "border-[var(--visible-border)] bg-[var(--pearl-white)]"}`}>
+                    <span className="text-[9px] uppercase tracking-wider font-bold block mb-1 text-[var(--primary-blue)]">Best Suited For:</span>
+                    <p className={`text-xs font-light leading-normal ${isHighlight ? "text-slate-200" : "text-[var(--dark-navy)]"}`}>
                       {model.suitability}
                     </p>
                   </div>
@@ -92,11 +92,11 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
                     onClick={() => onBookClick(model.title)}
                     className={`w-full py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
                       isHighlight
-                        ? "bg-[#059669] hover:bg-[#047857] text-white"
-                        : "bg-[#0a2540] hover:bg-[#11385f] text-white"
+                        ? "bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white"
+                        : "bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white"
                     }`}
                   >
-                    <span>Inquire this Model</span>
+                    <span>Start Your Growth</span>
                     <ArrowRight size={12} />
                   </button>
                 </div>

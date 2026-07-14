@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ onBookClick }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0A2540] pt-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-[var(--primary-blue)] pt-24 overflow-hidden">
       {/* Background Graphic Overlay */}
       <div className="absolute inset-0 z-0 opacity-60">
         <img
@@ -18,12 +18,12 @@ export default function Hero({ onBookClick }: HeroProps) {
           className="w-full h-full object-cover filter grayscale contrast-125"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2540] via-[#0A2540]/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--dark-navy)] via-[var(--dark-navy)]/80 to-[var(--primary-blue)]/50"></div>
       </div>
 
       {/* Decorative architectural lines to fit premium modern style */}
       <div className="absolute right-0 bottom-0 top-0 w-1/3 hidden lg:block pointer-events-none z-10">
-        <svg className="w-full h-full text-emerald-500/10" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg className="w-full h-full text-[var(--soft-aqua-blue)]/10" viewBox="0 0 100 100" preserveAspectRatio="none">
           <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" strokeWidth="0.5" />
           <line x1="100" y1="30" x2="30" y2="100" stroke="currentColor" strokeWidth="0.3" />
           <line x1="100" y1="60" x2="60" y2="100" stroke="currentColor" strokeWidth="0.2" />
@@ -41,7 +41,7 @@ export default function Hero({ onBookClick }: HeroProps) {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-[#059669]/10 border border-[#059669]/30 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#059669] mb-6"
+              className="inline-flex items-center gap-2 bg-[var(--dark-navy)]/70 border border-[var(--soft-aqua)]/70 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--soft-aqua)] mb-6"
             >
               <Award size={12} />
               <span>{HERO_CONTENT.badge}</span>
@@ -54,8 +54,8 @@ export default function Hero({ onBookClick }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none mb-6"
             >
-              Accelerating <span className="text-[#059669]">FMCG</span> <br />
-              <span className="text-[#059669]">Growth</span> Across the UAE
+              Accelerating <span className="text-[var(--soft-aqua)]">FMCG</span> <br />
+              <span className="text-[var(--soft-aqua)]">Growth</span> Across the UAE
             </motion.h1>
 
             {/* Subtext with absolute readability */}
@@ -63,7 +63,7 @@ export default function Hero({ onBookClick }: HeroProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mb-8 font-light"
+              className="text-base sm:text-lg md:text-xl text-[var(--pure-white)] leading-relaxed max-w-3xl mb-8 font-light"
             >
               {HERO_CONTENT.subtext}
             </motion.p>
@@ -77,10 +77,10 @@ export default function Hero({ onBookClick }: HeroProps) {
             >
               <button
                 onClick={onBookClick}
-                className="group flex justify-center items-center gap-3 bg-[#059669] hover:bg-[#047857] text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-none transition-all duration-300 shadow-lg hover:shadow-[#059669]/20"
+                className="group flex justify-center items-center gap-3 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-none transition-all duration-300 shadow-lg hover:shadow-[var(--primary-blue)]/20"
               >
                 <Calendar size={18} />
-                <span>Book a Consultation</span>
+                <span>Let's Talk Now</span>
                 <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -90,8 +90,8 @@ export default function Hero({ onBookClick }: HeroProps) {
                 rel="noopener noreferrer"
                 className="flex justify-center items-center gap-3 bg-transparent hover:bg-slate-800/80 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 border-2 border-slate-600 hover:border-white rounded-none transition-all duration-300"
               >
-                <MessageSquare size={18} className="text-emerald-400" />
-                <span>WhatsApp Us</span>
+                <MessageSquare size={18} className="text-[var(--soft-aqua-blue)]" />
+                <span>Chat on WhatsApp</span>
               </a>
             </motion.div>
 
@@ -103,26 +103,26 @@ export default function Hero({ onBookClick }: HeroProps) {
               className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-800"
             >
               <div className="flex items-start gap-3">
-                <Shield className="text-[#059669] shrink-0 mt-0.5" size={18} />
+                <Shield className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
                 <div>
                   <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Proven Results</h4>
-                  <p className="text-xs text-slate-400 mt-1">Direct retail accounts listed and managed</p>
+                  <p className="text-xs text-slate-200 mt-1">Direct retail accounts listed and managed</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <Users className="text-[#059669] shrink-0 mt-0.5" size={18} />
+                <Users className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
                 <div>
                   <h4 className="text-sm font-semibold text-white tracking-wide uppercase">UAE Expert Since</h4>
-                  <p className="text-xs text-slate-400 mt-1">In-market presence since 2013</p>
+                  <p className="text-xs text-slate-200 mt-1">In-market presence since 2013</p>
                 </div>
               </div>
 
               <div className="hidden sm:flex items-start gap-3">
-                <Award className="text-[#059669] shrink-0 mt-0.5" size={18} />
+                <Award className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
                 <div>
                   <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Full-Scale Coverage</h4>
-                  <p className="text-xs text-slate-400 mt-1">Food, Beauty, OTC & Non-Food</p>
+                  <p className="text-xs text-slate-200 mt-1">Food, Beauty, OTC & Non-Food</p>
                 </div>
               </div>
             </motion.div>
@@ -135,13 +135,13 @@ export default function Hero({ onBookClick }: HeroProps) {
               initial={{ opacity: 0, scale: 0.95, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-[#0A2540]/80 backdrop-blur-md border border-slate-700 p-8 text-left shadow-2xl relative"
+              className="bg-[var(--dark-navy)]/90 backdrop-blur-md border border-[var(--visible-border)]/70 p-8 text-left shadow-2xl relative"
             >
               {/* Highlight corners */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#059669]"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#059669]"></div>
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--soft-aqua)]"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--soft-aqua)]"></div>
 
-              <span className="text-xs font-semibold tracking-wider text-emerald-400 uppercase block mb-2">Extended Ground Support</span>
+              <span className="text-xs font-semibold tracking-wider text-[var(--soft-aqua-blue)] uppercase block mb-2">Extended Ground Support</span>
               <h3 className="text-xl font-bold text-white mb-4">Direct Buyer Relations</h3>
               <p className="text-sm text-slate-300 leading-relaxed mb-6 font-light">
                 Secure your shelf share in Lulu, Carrefour, ADNOC Oasis, Zoom, and leading Coops. We directly pitch to and negotiate with category decision-makers.
@@ -149,24 +149,24 @@ export default function Hero({ onBookClick }: HeroProps) {
               
               <div className="space-y-3">
                 <div className="flex justify-between text-xs py-2 border-b border-slate-800">
-                  <span className="text-slate-400">Consultancy Leader</span>
+                  <span className="text-slate-200">Business Support Leader</span>
                   <span className="font-semibold text-white">{APP_CONTACT.name}</span>
                 </div>
                 <div className="flex justify-between text-xs py-2 border-b border-slate-800">
-                  <span className="text-slate-400">In-Market Presence</span>
-                  <span className="font-semibold text-emerald-400">Since {APP_CONTACT.experienceSince}</span>
+                  <span className="text-slate-200">In-Market Presence</span>
+                  <span className="font-semibold text-[var(--soft-aqua-blue)]">Since {APP_CONTACT.experienceSince}</span>
                 </div>
                 <div className="flex justify-between text-xs py-2">
-                  <span className="text-slate-400">Coverage Location</span>
+                  <span className="text-slate-200">Coverage Location</span>
                   <span className="font-semibold text-white">All 7 UAE Emirates</span>
                 </div>
               </div>
 
               <button
                 onClick={onBookClick}
-                className="w-full mt-6 bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold uppercase tracking-wider py-3 px-4 transition-colors duration-200"
+                className="w-full mt-6 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white text-xs font-bold uppercase tracking-wider py-3 px-4 transition-colors duration-200"
               >
-                Inquire About Listing Codes
+                Start Your Growth
               </button>
             </motion.div>
           </div>
@@ -176,12 +176,12 @@ export default function Hero({ onBookClick }: HeroProps) {
 
       {/* Slide Indicator element */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1 opacity-70">
-        <span className="text-[10px] text-slate-400 uppercase tracking-widest">Scroll to Explore</span>
+        <span className="text-[10px] text-slate-200 uppercase tracking-widest">Scroll to Explore</span>
         <div className="w-1 h-8 bg-slate-800 rounded-full overflow-hidden">
           <motion.div
             animate={{ y: [0, 24, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-full h-1/3 bg-[#059669]"
+            className="w-full h-1/3 bg-[var(--primary-blue)]"
           ></motion.div>
         </div>
       </div>

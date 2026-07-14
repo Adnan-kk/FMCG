@@ -1,10 +1,10 @@
 import { Service, Channel, Category, HelpTarget, EngagementModel } from "./types";
 
 export const APP_CONTACT = {
-  name: "Divya",
-  title: "FMCG Strategic Consultant",
+  name: "FMCG Business Support Services",
+  title: "FMCG Business Support Team",
   phone: "+971 52 441 8720",
-  whatsappUrl: "https://wa.me/971524418720?text=Hi%20Divya%2C%20I%20would%20like%20to%20inquire%20about%20your%20FMCG%20business%20support%20services%20in%20the%20UAE.",
+  whatsappUrl: "https://wa.me/971524418720?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20FMCG%20business%20support%20services%20in%20the%20UAE.",
   email: "consultancy@fmcgsupport.ae", // professional placeholder
   office: "Dubai, United Arab Emirates",
   experienceSince: 2013,
@@ -12,14 +12,14 @@ export const APP_CONTACT = {
 
 export const HERO_CONTENT = {
   headline: "Accelerating FMCG Growth Across the UAE",
-  subtext: "Helping manufacturers, traders, importers, exporters, distributors, and brand owners enter, activate, and grow across the UAE retail market with expert FMCG consulting, retail account activation, sales operations, trade marketing, and key account management support.",
+  subtext: "We help manufacturers, traders, importers, exporters, distributors, and brand owners enter, activate, and grow across the UAE retail market with FMCG business support, retail account activation, sales operations, trade marketing, and key account management.",
   badge: "B2B Strategic Growth Partner",
 };
 
 export const ABOUT_CONTENT = {
   title: "Strategic FMCG Support in the UAE",
   body1: "FMCG Business Support Services helps businesses successfully navigate the UAE’s competitive retail and distribution landscape. With experience across food, non-food, beverages, pharma, nutrition, cosmetics, beauty, tobacco, and consumer goods categories, we support brands from market entry to retail activation and long-term growth.",
-  body2: "Led by Divya, an FMCG Strategic Consultant with deep experience in the UAE retail sector since 2013, our approach combines market knowledge, retail relationships, sales strategy, compliance coordination, and practical execution support. We act as your extended boots on the ground, bypassing traditional entry barriers to fast-track your retail listings and scale market share.",
+  body2: "Our UAE retail experience since 2013 combines market knowledge, retail relationships, sales strategy, compliance coordination, and practical execution support. We operate as an extension of your commercial team, helping overcome entry barriers, accelerate retail listings, and build sustainable market share.",
   image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop", // Elegant Dubai Business District
 };
 
@@ -239,7 +239,7 @@ export const WHY_CHOOSE_US = [
   },
   {
     title: "Practical Execution Support",
-    description: "We are not just high-level consultants; we act as your local boots on the ground, attending buyer reviews and checking shelves in person.",
+    description: "We combine strategic direction with local execution, attending buyer reviews and conducting in-market shelf checks.",
     metric: "Hands-on",
     subtext: "Field Execution"
   },
@@ -257,7 +257,7 @@ export const WHY_CHOOSE_US = [
   },
   {
     title: "Flexible Engagement Models",
-    description: "Whether you need a short-term listing sprint or a long-term dedicated key account consulting partner, we tailor to your scope.",
+    description: "Whether you need a focused listing sprint or long-term key account support, we tailor the engagement to your scope.",
     metric: "Flexible",
     subtext: "Tailored Structures"
   }
@@ -275,7 +275,7 @@ export const ENGAGEMENT_MODELS: EngagementModel[] = [
     suitability: "Ideal for brands with existing distribution requiring independent troubleshooting."
   },
   {
-    title: "Monthly Strategic Consultancy",
+    title: "Monthly Strategic Support",
     description: "Retainer-based, continuous strategic support. We act as your off-site commercial director and key account adviser.",
     suitability: "Ideal for growing brands needing active executive leadership without full-time local payroll."
   },
@@ -315,8 +315,8 @@ export const FAQS = [
     a: "We begin with product validation and compliance checks. Next, we prepare a high-impact buyer presentation focused on category gaps and profitability. We coordinate the review meeting, negotiate the commercial listing fees, set up vendor portals, and secure the initial opening PO."
   },
   {
-    q: "Do you act as a distributor or a business consultant?",
-    a: "We are strategic FMCG consultants and operational execution partners. We do not buy inventory ourselves; instead, we represent your interest to ensure the distributors you choose perform optimally, or we activate direct retail codes in your name so you control your brand equity."
+    q: "Do you act as a distributor or a business support partner?",
+    a: "We provide strategic FMCG business support and operational execution. We do not buy inventory; instead, we represent your interests to help distributors perform effectively or activate direct retail codes in your company name, protecting your brand equity."
   },
   {
     q: "Can you help resolve payment issues (ageing collections) with UAE retailers?",
@@ -324,6 +324,6 @@ export const FAQS = [
   },
   {
     q: "What is your experience in the UAE market?",
-    a: "Our consultancy is led by Divya, an active UAE FMCG Strategic Consultant who has been operating directly in the UAE retail space since 2013, overseeing major brand activations and distributor turnarounds."
+    a: "Our team has operated directly in the UAE FMCG retail market since 2013, supporting brand activations, distribution development, and commercial performance improvement."
   }
 ];

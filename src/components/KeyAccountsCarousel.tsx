@@ -25,26 +25,26 @@ export default function KeyAccountsCarousel() {
   const doubleLogos = [...logos, ...logos];
 
   return (
-    <section className="py-20 bg-white border-b border-slate-100 overflow-hidden relative">
+    <section className="py-20 bg-[var(--pearl-white)] border-b border-[var(--visible-border)] overflow-hidden relative">
       {styleTag}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-px bg-[#059669]"></span>
+            <span className="w-6 h-px bg-[var(--primary-blue)]"></span>
 
-            <span className="text-xs font-bold tracking-widest text-[#059669] uppercase">
+            <span className="text-xs font-bold tracking-widest text-[var(--primary-blue)] uppercase">
               RETAIL NETWORK
             </span>
 
-            <span className="w-6 h-px bg-[#059669]"></span>
+            <span className="w-6 h-px bg-[var(--primary-blue)]"></span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a2540] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--primary-blue)] tracking-tight">
             Strong Retail & Distribution Network
           </h2>
 
-          <p className="mt-3 text-slate-500 font-light text-sm sm:text-base">
+          <p className="mt-3 text-[var(--muted-text)] font-light text-sm sm:text-base">
             Experience across leading UAE retail and distribution channels.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function KeyAccountsCarousel() {
           {doubleLogos.map((logo, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[180px] h-[90px] border border-slate-200/60 rounded-lg flex items-center justify-center shadow-[0_2px_8px_-3px_rgba(0,0,0,0.05)] hover:shadow-md hover:border-emerald-500/30 transition-all duration-300 bg-slate-50/20 select-none group relative overflow-hidden"
+              className="flex-shrink-0 w-[180px] h-[90px] border border-[var(--visible-border)]/60 rounded-lg flex items-center justify-center shadow-[0_2px_8px_-3px_rgba(0,0,0,0.05)] hover:shadow-md hover:border-[var(--soft-aqua-blue)]/30 transition-all duration-300 bg-[var(--pearl-white)]/20 select-none group relative overflow-hidden"
             >
               <img
                 src={logo}

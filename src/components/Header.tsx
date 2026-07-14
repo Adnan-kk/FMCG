@@ -52,8 +52,8 @@ export default function Header({ onBookClick }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A2540] shadow-md py-4 text-white"
-          : "bg-transparent py-6 text-white"
+          ? "bg-[var(--dark-navy)] shadow-md py-4 text-white"
+          : "bg-[var(--dark-navy)]/90 backdrop-blur-sm py-6 text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,10 +65,10 @@ export default function Header({ onBookClick }: HeaderProps) {
             className="flex flex-col select-none"
           >
             <span className="font-extrabold text-base sm:text-lg lg:text-base xl:text-xl tracking-wider uppercase text-white flex items-center gap-1.5 xl:gap-2">
-              FMCG <span className="text-[#059669] font-semibold text-xs lg:text-[11px] xl:text-sm border-l border-slate-500 pl-1.5 xl:pl-2">SUPPORT UAE</span>
+              FMCG <span className="text-[var(--soft-aqua)] font-semibold text-xs lg:text-[11px] xl:text-sm border-l border-[var(--visible-border)] pl-1.5 xl:pl-2">SUPPORT UAE</span>
             </span>
             <span className="text-[7.5px] sm:text-[8.5px] lg:text-[7.5px] xl:text-[9px] uppercase tracking-[0.2em] xl:tracking-[0.25em] text-slate-300 mt-0.5 whitespace-nowrap">
-              Strategic Consulting & Execution
+              Strategic Business Support & Execution
             </span>
           </a>
 
@@ -79,7 +79,7 @@ export default function Header({ onBookClick }: HeaderProps) {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`text-xs xl:text-sm font-semibold tracking-wide text-slate-200 hover:text-[#059669] transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#059669] hover:after:w-full after:transition-all after:duration-300 ${
+                className={`text-xs xl:text-sm font-semibold tracking-wide text-[var(--pure-white)] hover:text-[var(--soft-aqua)] transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[var(--soft-aqua)] hover:after:w-full after:transition-all after:duration-300 ${
                   link.important ? "inline-block" : "hidden xl:inline-block"
                 }`}
               >
@@ -94,16 +94,16 @@ export default function Header({ onBookClick }: HeaderProps) {
               href={APP_CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 xl:px-4 py-2 rounded-none transition-all duration-200 shadow-sm whitespace-nowrap"
+              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold text-white bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] border border-[var(--soft-aqua)]/50 px-3 xl:px-4 py-2 rounded-none transition-all duration-200 shadow-sm whitespace-nowrap"
             >
               <MessageSquare size={13} className="xl:w-4 xl:h-4" />
-              <span>WhatsApp</span>
+              <span>Chat on WhatsApp</span>
             </a>
             <button
               onClick={onBookClick}
-              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold bg-transparent border border-white hover:bg-white hover:text-[#0A2540] px-3 xl:px-4 py-2 rounded-none transition-all duration-200 whitespace-nowrap"
+              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold bg-transparent border border-white hover:bg-[var(--pearl-white)] hover:text-[var(--primary-blue)] px-3 xl:px-4 py-2 rounded-none transition-all duration-200 whitespace-nowrap"
             >
-              <span>Book Consultation</span>
+              <span>Let's Talk Now</span>
               <ArrowRight size={11} className="xl:w-3.5 xl:h-3.5" />
             </button>
           </div>
@@ -114,7 +114,7 @@ export default function Header({ onBookClick }: HeaderProps) {
               href={APP_CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+              className="p-2 text-[var(--soft-aqua-blue)] hover:text-[var(--soft-aqua-blue)] transition-colors"
               title="Chat on WhatsApp"
             >
               <MessageSquare size={20} />
@@ -132,7 +132,7 @@ export default function Header({ onBookClick }: HeaderProps) {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-screen bg-[#0A2540] border-t border-slate-800 py-4" : "max-h-0 py-0"
+          isOpen ? "max-h-screen bg-[var(--primary-blue)] border-t border-slate-800 py-4" : "max-h-0 py-0"
         }`}
       >
         <div className="px-4 pt-2 pb-6 space-y-3">
@@ -151,19 +151,19 @@ export default function Header({ onBookClick }: HeaderProps) {
               href={APP_CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex justify-center items-center gap-2 w-full text-center font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3 transition-colors"
+              className="flex justify-center items-center gap-2 w-full text-center font-bold bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white py-3 transition-colors"
             >
               <MessageSquare size={18} />
-              <span>WhatsApp Us Now</span>
+              <span>Chat on WhatsApp</span>
             </a>
             <button
               onClick={() => {
                 setIsOpen(false);
                 onBookClick();
               }}
-              className="w-full text-center font-bold bg-transparent border border-white text-white hover:bg-white hover:text-[#0A2540] py-3 transition-all"
+              className="w-full text-center font-bold bg-transparent border border-white text-white hover:bg-[var(--pearl-white)] hover:text-[var(--primary-blue)] py-3 transition-all"
             >
-              Book Consultation
+              Let's Talk Now
             </button>
           </div>
         </div>
