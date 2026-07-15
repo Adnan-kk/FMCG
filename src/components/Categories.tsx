@@ -101,14 +101,14 @@ export default function Categories({ onBookClick }: CategoriesProps) {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedId(cat.id)}
-                  className={`w-full text-left p-3.5 px-5 transition-all text-xs sm:text-sm font-semibold tracking-wide border-l-2 flex items-center justify-between ${
+                  className={`group flex w-full items-center justify-between border px-5 py-5 text-left text-xs font-semibold tracking-wide transition-all duration-300 sm:text-sm ${
                     isActive
-                      ? "bg-[var(--primary-blue)] text-white border-[var(--primary-blue)] shadow-sm"
-                      : "bg-[var(--pearl-white)] text-[var(--dark-navy)] border-transparent hover:bg-slate-100 hover:text-[var(--primary-blue)]"
+                      ? "border-[#244A83] bg-[#244A83] text-white shadow-sm"
+                      : "border-[#244A83]/30 bg-white text-[#102033] shadow-[0_3px_12px_rgba(16,32,51,0.04)] hover:border-[#244A83] hover:bg-[#DCEFF1] hover:text-[#1A3766] hover:shadow-[0_5px_16px_rgba(36,74,131,0.10)] focus-visible:border-[#244A83] focus-visible:bg-[#DCEFF1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244A83]/30"
                   }`}
                 >
                   <span>{cat.name}</span>
-                  <ChevronRight size={14} className={`transition-transform duration-200 hidden lg:block ${isActive ? "rotate-90 text-[var(--primary-blue)]" : "text-[var(--muted-text)]"}`} />
+                  <ChevronRight size={14} className={`hidden transition-all duration-300 lg:block ${isActive ? "rotate-90 text-white" : "text-[#244A83] group-hover:translate-x-0.5 group-hover:text-[#1A3766]"}`} />
                 </button>
               );
             })}

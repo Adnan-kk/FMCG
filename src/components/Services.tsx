@@ -186,9 +186,10 @@ export default function Services({ onBookClick }: ServicesProps) {
           </div>
           <button
             onClick={() => onBookClick("Hello, I need general guidance on which services best fit our brand's SKU portfolio.")}
-            className="w-full md:w-auto shrink-0 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white text-xs font-bold uppercase tracking-wider py-3.5 px-6 transition-colors shadow-lg"
+            className="group inline-flex w-full shrink-0 items-center justify-center gap-3 border border-white bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#244A83] shadow-[0_5px_16px_rgba(16,32,51,0.16)] transition-all duration-300 hover:border-[#DCEFF1] hover:bg-[#DCEFF1] hover:text-[#102033] focus:outline-none focus:ring-2 focus:ring-white/70 md:w-auto"
           >
-            Let's Talk Now
+            <span>Let's Talk Now</span>
+            <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
 

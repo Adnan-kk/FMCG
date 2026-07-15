@@ -1,5 +1,4 @@
-import { motion } from "motion/react";
-import { MessageSquare, Calendar, ChevronRight, Award, Shield, Users } from "lucide-react";
+import { MessageSquare, Calendar, ChevronRight } from "lucide-react";
 import { HERO_CONTENT, APP_CONTACT } from "../data";
 import BannerImage from "../assets/images/Baner.jpg";
 
@@ -9,180 +8,50 @@ interface HeroProps {
 
 export default function Hero({ onBookClick }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center bg-[var(--primary-blue)] pt-24 overflow-hidden">
-      {/* Background Graphic Overlay */}
-      <div className="absolute inset-0 z-0 opacity-60">
-        <img
-          src={BannerImage}
-          alt="Dubai Premium Business District"
-          className="w-full h-full object-cover filter grayscale contrast-125"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--dark-navy)] via-[var(--dark-navy)]/80 to-[var(--primary-blue)]/50"></div>
-      </div>
+    <section className="relative mt-[72px] min-h-[680px] overflow-hidden md:h-[600px] md:min-h-[600px] xl:mt-[78px]">
+      <img
+        src={BannerImage}
+        alt="Dubai Premium Business District"
+        className="absolute inset-0 h-full w-full object-cover"
+        referrerPolicy="no-referrer"
+      />
 
-      {/* Decorative architectural lines to fit premium modern style */}
-      <div className="absolute right-0 bottom-0 top-0 w-1/3 hidden lg:block pointer-events-none z-10">
-        <svg className="w-full h-full text-[var(--soft-aqua-blue)]/10" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" strokeWidth="0.5" />
-          <line x1="100" y1="30" x2="30" y2="100" stroke="currentColor" strokeWidth="0.3" />
-          <line x1="100" y1="60" x2="60" y2="100" stroke="currentColor" strokeWidth="0.2" />
-        </svg>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#102033]/90 from-0% via-[#244A83]/55 via-35% to-transparent to-60%" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Main Hero Copy (Left 8 columns on desktop) */}
-          <div className="lg:col-span-8 text-left">
-            
-            {/* Elegant upper badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-[var(--dark-navy)]/70 border border-[var(--soft-aqua)]/70 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--soft-aqua)] mb-6"
+      <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-10 sm:px-6 sm:py-12 md:h-full md:min-h-0 lg:px-8 lg:py-14">
+        <div className="max-w-[820px] text-left">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#DCEFF1] sm:mb-5 sm:text-sm">
+            B2B Strategic Growth Partner
+          </p>
+
+          <h1 className="mb-5 text-3xl font-extrabold leading-tight tracking-tight text-white sm:mb-6 sm:text-4xl md:text-5xl 2xl:text-6xl">
+            Accelerating FMCG Business Growth Across the UAE
+          </h1>
+
+          <p className="mb-7 max-w-2xl text-sm font-light leading-relaxed text-white sm:mb-8 sm:text-base md:text-lg xl:text-xl">
+            {HERO_CONTENT.subtext}
+          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <button
+              onClick={onBookClick}
+              className="group flex items-center justify-center gap-3 rounded-none bg-[var(--primary-blue)] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-[var(--primary-blue-hover)] hover:shadow-[var(--primary-blue)]/20"
             >
-              <Award size={12} />
-              <span>{HERO_CONTENT.badge}</span>
-            </motion.div>
+              <Calendar size={18} />
+              <span>Let's Talk Now</span>
+              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </button>
 
-            {/* Giant Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none mb-6"
+            <a
+              href={APP_CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 rounded-none border-2 border-white/70 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-white hover:bg-[#102033]/70"
             >
-              Accelerating <span className="text-[var(--soft-aqua)]">FMCG Business</span> <br />
-              <span className="text-[var(--soft-aqua)]"></span> Growth Across the UAE
-            </motion.h1>
-
-            {/* Subtext with absolute readability */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-[var(--pure-white)] leading-relaxed max-w-3xl mb-8 font-light"
-            >
-              {HERO_CONTENT.subtext}
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
-            >
-              <button
-                onClick={onBookClick}
-                className="group flex justify-center items-center gap-3 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-none transition-all duration-300 shadow-lg hover:shadow-[var(--primary-blue)]/20"
-              >
-                <Calendar size={18} />
-                <span>Let's Talk Now</span>
-                <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <a
-                href={APP_CONTACT.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex justify-center items-center gap-3 bg-transparent hover:bg-slate-800/80 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 border-2 border-slate-600 hover:border-white rounded-none transition-all duration-300"
-              >
-                <MessageSquare size={18} className="text-[var(--soft-aqua-blue)]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </motion.div>
-
-            {/* Soft corporate confidence highlights */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-800"
-            >
-              <div className="flex items-start gap-3">
-                <Shield className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
-                <div>
-                  <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Proven Results</h4>
-                  <p className="text-xs text-slate-200 mt-1">Direct retail accounts listed and managed</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Users className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
-                <div>
-                  <h4 className="text-sm font-semibold text-white tracking-wide uppercase">UAE Expert Since</h4>
-                  <p className="text-xs text-slate-200 mt-1">In-market presence since 2013</p>
-                </div>
-              </div>
-
-              <div className="hidden sm:flex items-start gap-3">
-                <Award className="text-[var(--soft-aqua)] shrink-0 mt-0.5" size={18} />
-                <div>
-                  <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Full-Scale Coverage</h4>
-                  <p className="text-xs text-slate-200 mt-1">Food, Beauty, OTC & Non-Food</p>
-                </div>
-              </div>
-            </motion.div>
-
+              <MessageSquare size={18} className="text-[#DCEFF1]" />
+              <span>Chat on WhatsApp</span>
+            </a>
           </div>
-
-          {/* Quick Floating Mini-Card (Right 4 columns on desktop) */}
-          <div className="hidden lg:block lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-[var(--dark-navy)]/90 backdrop-blur-md border border-[var(--visible-border)]/70 p-8 text-left shadow-2xl relative"
-            >
-              {/* Highlight corners */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--soft-aqua)]"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--soft-aqua)]"></div>
-
-              <span className="text-xs font-semibold tracking-wider text-[var(--soft-aqua-blue)] uppercase block mb-2">Extended Ground Support</span>
-              <h3 className="text-xl font-bold text-white mb-4">Direct Buyer Relations</h3>
-              <p className="text-sm text-slate-300 leading-relaxed mb-6 font-light">
-                Secure your shelf share in Lulu, Carrefour, ADNOC Oasis, Zoom, and leading Coops. We directly pitch to and negotiate with category decision-makers.
-              </p>
-              
-              <div className="space-y-3">
-                <div className="flex justify-between text-xs py-2 border-b border-slate-800">
-                  <span className="text-slate-200">Business Support Leader</span>
-                  <span className="font-semibold text-white">{APP_CONTACT.name}</span>
-                </div>
-                <div className="flex justify-between text-xs py-2 border-b border-slate-800">
-                  <span className="text-slate-200">In-Market Presence</span>
-                  <span className="font-semibold text-[var(--soft-aqua-blue)]">Since {APP_CONTACT.experienceSince}</span>
-                </div>
-                <div className="flex justify-between text-xs py-2">
-                  <span className="text-slate-200">Coverage Location</span>
-                  <span className="font-semibold text-white">All 7 UAE Emirates</span>
-                </div>
-              </div>
-
-              <button
-                onClick={onBookClick}
-                className="w-full mt-6 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white text-xs font-bold uppercase tracking-wider py-3 px-4 transition-colors duration-200"
-              >
-                Start Your Growth
-              </button>
-            </motion.div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Slide Indicator element */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1 opacity-70">
-        <span className="text-[10px] text-slate-200 uppercase tracking-widest">Scroll to Explore</span>
-        <div className="w-1 h-8 bg-slate-800 rounded-full overflow-hidden">
-          <motion.div
-            animate={{ y: [0, 24, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-full h-1/3 bg-[var(--primary-blue)]"
-          ></motion.div>
         </div>
       </div>
     </section>

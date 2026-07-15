@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4 lg:gap-x-10">
           <section aria-labelledby="footer-brand" className="max-w-sm">
             <h2 id="footer-brand" className="font-[Montserrat,sans-serif] text-xl font-extrabold uppercase tracking-[0.12em] text-white">
-              FMCG <span className="text-sm font-semibold text-[var(--soft-aqua)]">Support UAE</span>
+              FMCG <span className="text-sm font-semibold text-[var(--soft-aqua)]"></span>
             </h2>
             <p className="mt-4 font-[Poppins,sans-serif] text-sm leading-7 text-white/[0.78]">
               Bespoke market entry, retail listing activation, and continuous operational key account management business support. Actively boosting brand equity and commercial distribution across major hypermarkets and Cooperatives.
