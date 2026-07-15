@@ -8,12 +8,10 @@ import {
   CalendarCheck2, 
   Clock, 
   CheckCircle2, 
-  HelpCircle, 
-  ChevronDown,
   Trash2,
   AlertCircle
 } from "lucide-react";
-import { APP_CONTACT, CATEGORIES, SERVICES, FAQS } from "../data";
+import { APP_CONTACT, CATEGORIES, SERVICES } from "../data";
 import { BookingSubmission } from "../types";
 
 interface ContactFormProps {
@@ -36,7 +34,6 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [myBookings, setMyBookings] = useState<BookingSubmission[]>([]);
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Sync Prefilled Message from Parent
   useEffect(() => {
@@ -111,14 +108,6 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
     localStorage.setItem("fmcg_growth enquiry_bookings", JSON.stringify(updated));
   };
 
-  const toggleFaq = (index: number) => {
-    if (activeFaq === index) {
-      setActiveFaq(null);
-    } else {
-      setActiveFaq(index);
-    }
-  };
-
   return (
     <section id="contact" className="py-24 bg-[var(--pearl-white)] relative border-b border-[var(--visible-border)] scroll-mt-12" ref={formRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,7 +122,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
           <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] tracking-tight">
             Schedule a Diagnostic Strategy Call
           </h2>
-          <p className="mt-4 text-[var(--muted-text)] font-light text-sm sm:text-base">
+          <p className="mt-4 text-sm font-light text-[var(--dark-navy)]/75 sm:text-base">
             Discuss listings feasibility, product compliance, or distributor performance in depth. Complete our diagnostic intake form below.
           </p>
         </div>
@@ -151,7 +140,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                 <CalendarCheck2 className="text-[var(--primary-blue)]" size={20} />
                 FMCG Growth Enquiry Intake Form
               </h3>
-              <p className="text-xs text-[var(--muted-text)] font-light mt-1">
+              <p className="mt-1 text-xs font-light text-[var(--dark-navy)]/75">
                 Provide corporate parameters to prepare an optimized listings audit report prior to our call.
               </p>
             </div>
@@ -161,7 +150,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                 <form onSubmit={handleSubmit} className="space-y-5 text-left">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         Client Full Name *
                       </label>
                       <input
@@ -174,7 +163,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         Corporate Email *
                       </label>
                       <input
@@ -190,7 +179,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         WhatsApp / Contact Mobile *
                       </label>
                       <input
@@ -203,7 +192,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         Company Name *
                       </label>
                       <input
@@ -219,7 +208,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         Primary FMCG Category
                       </label>
                       <select
@@ -235,7 +224,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                         Strategic Support Priority
                       </label>
                       <select
@@ -253,7 +242,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-[var(--muted-text)] mb-1.5">
+                    <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                       Business Support Scope & SKU Details
                     </label>
                     <textarea
@@ -307,7 +296,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                   </div>
                   <div>
                     <h4 className="text-2xl font-extrabold text-[var(--primary-blue)]">Intake Successfully Received</h4>
-                    <p className="text-sm text-[var(--muted-text)] font-light mt-2 max-w-md mx-auto leading-relaxed">
+                    <p className="mx-auto mt-2 max-w-md text-sm font-light leading-relaxed text-[var(--dark-navy)]/75">
                       Thank you for scheduling your growth enquiry with <strong>FMCG Support Team</strong>. Our analytics department will audit your specified FMCG category prior to contacting you via WhatsApp or phone within 24 working hours.
                     </p>
                   </div>
@@ -330,7 +319,7 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
             {/* Simulated Live Bookings Tracker widget underneath */}
             {myBookings.length > 0 && (
               <div className="mt-10 pt-8 border-t border-[var(--visible-border)] text-left">
-                <h4 className="text-xs uppercase font-bold text-[var(--muted-text)] tracking-wider mb-4 flex items-center gap-2">
+                <h4 className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--dark-navy)]/80">
                   <span className="w-2.5 h-2.5 bg-[var(--soft-aqua-blue)]0 rounded-full animate-pulse"></span>
                   My Registered Growth Enquiry Requests ({myBookings.length})
                 </h4>
@@ -342,12 +331,12 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                           <span className="font-bold text-sm text-[var(--primary-blue)]">{b.company}</span>
                           <span className="text-[10px] bg-slate-100 text-[var(--dark-navy)] px-2 py-0.5 font-medium">{b.category}</span>
                         </div>
-                        <p className="text-xs text-[var(--muted-text)] mt-1 font-medium">Service Priority: {b.serviceNeeded}</p>
-                        <p className="text-[9px] text-[var(--muted-text)] mt-2 font-mono">Sent: {b.submittedAt}</p>
+                        <p className="mt-1 text-xs font-medium text-[var(--dark-navy)]/75">Service Priority: {b.serviceNeeded}</p>
+                        <p className="mt-2 text-[9px] font-mono text-[var(--dark-navy)]/70">Sent: {b.submittedAt}</p>
                       </div>
                       <button
                         onClick={() => deleteBooking(idx)}
-                        className="text-[var(--muted-text)] hover:text-red-500 p-1 transition-colors"
+                        className="p-1 text-[var(--dark-navy)]/70 transition-colors hover:text-red-500"
                         title="Delete record"
                       >
                         <Trash2 size={14} />
@@ -360,26 +349,26 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
 
           </div>
 
-          {/* Right Panel: FMCG Support Team Direct Profile & B2B FAQs (5 columns) */}
+          {/* Right Panel: FMCG Support Team Direct Profile (5 columns) */}
           <div className="lg:col-span-5 space-y-8">
             
             {/* Direct Business Support Team Card */}
-            <div className="bg-[var(--primary-blue)] text-white p-8 border border-slate-800 text-left relative overflow-hidden">
+            <div className="bg-[var(--primary-blue)] text-white p-8 border border-white/20 text-left relative overflow-hidden">
               {/* Highlight bracket corners */}
               <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[var(--primary-blue)]/30"></div>
               
               <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--soft-aqua)]">Direct Liaison Desk</span>
               <h3 className="text-2xl font-extrabold text-white mt-1 mb-2">FMCG Support Team</h3>
-              <p className="text-xs text-[var(--soft-aqua-blue)] font-semibold tracking-wider uppercase mb-6">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-wider text-white/[0.92]">
                 UAE FMCG Business Support Team (Since 2013)
               </p>
 
-              <div className="space-y-4 text-xs font-light text-slate-200">
+              <div className="space-y-4 text-xs font-light text-white/[0.92]">
                 <div className="flex items-start gap-3">
                   <Phone size={14} className="text-[var(--soft-aqua)] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[var(--muted-text)] block text-[10px] uppercase font-bold">Mobile Direct</span>
-                    <a href={`tel:${APP_CONTACT.phone}`} className="hover:text-[var(--soft-aqua-blue)] transition-colors font-medium text-sm">
+                    <span className="block text-[10px] font-bold uppercase text-white/[0.72]">Mobile Direct</span>
+                    <a href={`tel:${APP_CONTACT.phone}`} className="text-white/[0.95] transition-colors hover:text-[var(--soft-aqua)] font-medium text-sm">
                       {APP_CONTACT.phone}
                     </a>
                   </div>
@@ -388,12 +377,12 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                 <div className="flex items-start gap-3">
                   <MessageSquare size={14} className="text-[var(--soft-aqua)] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[var(--muted-text)] block text-[10px] uppercase font-bold">Fast WhatsApp Response</span>
+                    <span className="block text-[10px] font-bold uppercase text-white/[0.72]">Fast WhatsApp Response</span>
                     <a
                       href={APP_CONTACT.whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[var(--soft-aqua-blue)] transition-colors underline font-medium text-sm"
+                      className="text-white/[0.95] transition-colors hover:text-[var(--soft-aqua)] underline font-medium text-sm"
                     >
                       Click to Chat Immediately
                     </a>
@@ -403,58 +392,22 @@ export default function ContactForm({ prefilledMessage, onClearPrefill, formRef 
                 <div className="flex items-start gap-3">
                   <Mail size={14} className="text-[var(--soft-aqua)] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[var(--muted-text)] block text-[10px] uppercase font-bold">Corporate Inquiries</span>
-                    <span className="font-medium text-sm text-slate-300">{APP_CONTACT.email}</span>
+                    <span className="block text-[10px] font-bold uppercase text-white/[0.72]">Corporate Inquiries</span>
+                    <span className="text-sm font-medium text-white/[0.95]">{APP_CONTACT.email}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <MapPin size={14} className="text-[var(--soft-aqua)] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[var(--muted-text)] block text-[10px] uppercase font-bold">Liaison Area</span>
-                    <span className="font-medium text-sm text-slate-300">{APP_CONTACT.office}</span>
+                    <span className="block text-[10px] font-bold uppercase text-white/[0.72]">Liaison Area</span>
+                    <span className="text-sm font-medium text-white/[0.95]">{APP_CONTACT.office}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-slate-800 text-[10px] text-[var(--muted-text)] leading-relaxed font-light">
+              <div className="mt-8 border-t border-white/20 pt-6 text-[10px] font-light leading-relaxed text-white/[0.72]">
                 Direct in-person strategic alignment workshops available for verified manufacturers, importers, and trading groups across executive hubs in Dubai, Abu Dhabi, and Sharjah.
-              </div>
-            </div>
-
-            {/* B2B FAQ Accordion */}
-            <div className="text-left">
-              <h4 className="text-xs uppercase font-bold text-[var(--muted-text)] tracking-wider mb-4 pl-1">Intake FAQ Guide</h4>
-              <div className="space-y-3">
-                {FAQS.map((faq, index) => {
-                  const isOpen = activeFaq === index;
-                  return (
-                    <div key={index} className="border border-[var(--visible-border)] bg-[var(--pearl-white)]">
-                      <button
-                        onClick={() => toggleFaq(index)}
-                        className="w-full p-4 flex justify-between items-center text-left hover:bg-[var(--pearl-white)] transition-colors"
-                      >
-                        <span className="text-xs sm:text-sm font-bold text-[var(--primary-blue)] pr-4">{faq.q}</span>
-                        <ChevronDown size={16} className={`text-[var(--muted-text)] transition-transform duration-200 ${isOpen ? "rotate-180 text-[var(--primary-blue)]" : ""}`} />
-                      </button>
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="p-4 pt-0 text-xs text-[var(--muted-text)] font-light leading-relaxed border-t border-[var(--visible-border)]">
-                              {faq.a}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
               </div>
             </div>
 

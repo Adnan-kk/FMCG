@@ -13,7 +13,7 @@ import Compliance from "./components/Compliance";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import { APP_CONTACT } from "./data";
-import { MessageSquare, Phone, Calendar } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 export default function App() {
   const [prefilledMessage, setPrefilledMessage] = useState("");
@@ -115,7 +115,7 @@ export default function App() {
       <Footer />
 
       {/* Persistent Elegant Floating Quick-Actions Panel */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2.5">
+      <div className="fixed bottom-[10.5rem] right-6 z-40 sm:right-8">
         
         {/* Floating WhatsApp Action button */}
         <a
@@ -130,19 +130,6 @@ export default function App() {
             Chat with FMCG Support Team
           </span>
         </a>
-
-        {/* Floating Call to Action */}
-        <button
-          onClick={handleGeneralBook}
-          className="p-3.5 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-[var(--soft-aqua-blue)] rounded-full shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center group"
-          title="Open Growth Enquiry Intake Form"
-        >
-          <Calendar size={20} className="shrink-0" />
-          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-bold text-xs uppercase tracking-wider text-white pl-0 group-hover:pl-2 whitespace-nowrap">
-            Book free audit
-          </span>
-        </button>
-
       </div>
 
     </div>

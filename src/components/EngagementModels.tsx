@@ -57,7 +57,7 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
               >
                 {/* Visual Popular Badge */}
                 {isHighlight && (
-                  <div className="absolute top-0 right-0 bg-[var(--primary-blue)] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1">
+                  <div className="absolute right-4 top-4 inline-flex border border-white bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-[var(--primary-blue)] shadow-sm">
                     Recommended Model
                   </div>
                 )}
