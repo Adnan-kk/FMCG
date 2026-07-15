@@ -62,23 +62,24 @@ export default function Services({ onBookClick }: ServicesProps) {
   };
 
   return (
-    <section id="services" className="py-24 bg-[var(--pearl-white)] relative overflow-hidden border-b border-[var(--visible-border)]">
+    <section id="services" className="relative overflow-hidden border-b border-[var(--visible-border)] bg-[var(--pearl-white)] py-20 sm:py-24">
       {/* Decorative architectural background graphics */}
-      <div className="absolute right-0 top-10 w-64 h-64 bg-slate-100 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="pointer-events-none absolute right-0 top-10 h-72 w-72 rounded-full bg-[var(--soft-aqua)]/45 blur-3xl"></div>
+      <div className="pointer-events-none absolute bottom-24 left-0 h-48 w-48 rounded-full bg-[var(--primary-blue)]/5 blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <div className="text-left max-w-2xl">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-px bg-[var(--primary-blue)]"></span>
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-px w-10 bg-[var(--primary-blue)]"></span>
               <span className="text-xs font-bold tracking-widest text-[var(--primary-blue)] uppercase">OUR SERVICES</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] tracking-tight lg:whitespace-nowrap">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--dark-navy)] md:text-4xl lg:whitespace-nowrap">
               Comprehensive Operational Support
             </h2>
-            <p className="mt-3 text-[var(--muted-text)] font-light text-sm sm:text-base">
+            <p className="mt-4 max-w-xl text-sm font-light leading-7 text-[var(--muted-text)] sm:text-base">
               Bespoke execution support to accelerate listings, monitor on-shelf execution, audit competitor behavior, and manage trade relations across all emirates.
             </p>
           </div>
@@ -88,26 +89,24 @@ export default function Services({ onBookClick }: ServicesProps) {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => {
             const isExpanded = expandedId === service.id;
             return (
               <div
                 key={service.id}
-                className={`bg-[var(--pearl-white)] border text-left flex flex-col justify-between transition-all duration-300 relative overflow-hidden cursor-pointer group ${
-                  isExpanded 
-                    ? "border-[var(--primary-blue)] ring-1 ring-[var(--primary-blue)] shadow-md" 
-                    : "border-[var(--visible-border)] hover:border-[var(--primary-blue)] hover:shadow-md"
+                className={`group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-none border border-white/[0.18] bg-[var(--primary-blue)] text-left shadow-[0_8px_24px_rgba(16,32,51,0.16)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[var(--primary-blue)] hover:bg-[var(--pearl-white)] hover:shadow-[0_18px_38px_rgba(16,32,51,0.26)] ${
+                  isExpanded ? "shadow-[0_14px_30px_rgba(16,32,51,0.22)]" : ""
                 }`}
                 onClick={() => toggleExpand(service.id)}
               >
                 {/* Visual top border active tag */}
-                <div className={`absolute top-0 left-0 right-0 h-1 transition-all ${isExpanded ? "bg-[var(--primary-blue)]" : "bg-transparent"}`}></div>
+                <div className="absolute left-0 right-0 top-0 h-1 bg-white/45 transition-colors duration-300 group-hover:bg-[var(--primary-blue)]"></div>
 
-                <div className="p-6 sm:p-8">
+                <div className="flex-1 p-6 sm:p-7">
                   {/* Icon & Toggle Row */}
-                  <div className="flex justify-between items-start mb-6">
-                    <div className={`p-3 transition-colors ${isExpanded ? "bg-[var(--primary-blue)] text-white" : "bg-[var(--primary-blue)]/5 text-[var(--primary-blue)] group-hover:bg-[var(--primary-blue)] group-hover:text-white"}`}>
+                  <div className="mb-6 flex items-start justify-between">
+                    <div className="rounded-none bg-white/12 p-3 text-[var(--soft-aqua)] transition-all duration-300 group-hover:bg-[var(--soft-aqua)] group-hover:text-[var(--primary-blue)]">
                       {getIcon(service.iconName)}
                     </div>
                     <button
@@ -115,7 +114,7 @@ export default function Services({ onBookClick }: ServicesProps) {
                         e.stopPropagation();
                         toggleExpand(service.id);
                       }}
-                      className={`p-1.5 rounded-full ${isExpanded ? "bg-[var(--soft-aqua-blue)] text-[var(--primary-blue)]" : "bg-slate-100 text-[var(--muted-text)] group-hover:bg-slate-200"}`}
+                      className="rounded-none bg-white/15 p-1.5 text-white transition-colors duration-300 group-hover:bg-[var(--soft-aqua)] group-hover:text-[var(--primary-blue)]"
                       title={isExpanded ? "Collapse" : "Expand Details"}
                     >
                       {isExpanded ? <Minus size={14} /> : <Plus size={14} />}
@@ -123,8 +122,8 @@ export default function Services({ onBookClick }: ServicesProps) {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-lg font-bold text-[var(--primary-blue)] mb-3 group-hover:text-[var(--primary-blue)] transition-colors">{service.title}</h3>
-                  <p className="text-xs sm:text-sm text-[var(--muted-text)] font-light leading-relaxed mb-4">
+                  <h3 className="mb-3 text-lg font-bold text-white transition-colors duration-300 group-hover:text-[var(--dark-navy)]">{service.title}</h3>
+                  <p className="mb-4 text-xs font-light leading-6 text-white/[0.78] transition-colors duration-300 group-hover:text-[var(--muted-text)] sm:text-sm">
                     {service.description}
                   </p>
 
@@ -138,12 +137,12 @@ export default function Services({ onBookClick }: ServicesProps) {
                         transition={{ duration: 0.25 }}
                         className="overflow-hidden"
                       >
-                        <div className="pt-4 mt-4 border-t border-[var(--visible-border)] space-y-2">
-                          <p className="text-[10px] uppercase tracking-wider font-bold text-[var(--primary-blue)]">Execution Scope:</p>
+                        <div className="mt-4 space-y-2 border-t border-white/25 pt-4 transition-colors duration-300 group-hover:border-[var(--primary-blue)]/20">
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--soft-aqua)] transition-colors duration-300 group-hover:text-[var(--primary-blue)]">Execution Scope:</p>
                           <ul className="space-y-1.5">
                             {service.details.map((detail, idx) => (
-                              <li key={idx} className="flex items-center gap-2 text-xs text-[var(--dark-navy)] font-light">
-                                <Check size={12} className="text-[var(--primary-blue)] shrink-0" />
+                              <li key={idx} className="flex items-center gap-2 text-xs font-light text-white/[0.84] transition-colors duration-300 group-hover:text-[var(--muted-text)]">
+                                <Check size={12} className="shrink-0 text-[var(--soft-aqua)] transition-colors duration-300 group-hover:text-[var(--primary-blue)]" />
                                 <span>{detail}</span>
                               </li>
                             ))}
@@ -155,8 +154,8 @@ export default function Services({ onBookClick }: ServicesProps) {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="px-6 py-4 bg-[var(--pearl-white)]/50 border-t border-[var(--visible-border)] flex justify-between items-center text-xs">
-                  <span className="text-[var(--primary-blue)] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <div className="mt-auto flex items-center justify-between rounded-none border-t border-white/20 px-6 py-4 text-xs transition-colors duration-300 group-hover:border-[var(--primary-blue)]/20 group-hover:bg-white">
+                  <span className="flex items-center gap-1 font-semibold text-white transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--primary-blue)]">
                     {isExpanded ? "Hide Specific Tasks" : "View Specific Tasks"}
                     <ChevronRight size={12} />
                   </span>
@@ -167,7 +166,7 @@ export default function Services({ onBookClick }: ServicesProps) {
                         e.stopPropagation();
                         onBookClick(`Hello, I am interested in inquiring about your: "${service.title}" support service for the UAE retail market.`);
                       }}
-                      className="bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white font-bold px-3 py-1.5 uppercase tracking-widest text-[9px]"
+                      className="rounded-none bg-[var(--soft-aqua)] px-3 py-1.5 text-[9px] font-bold uppercase tracking-widest text-[var(--dark-navy)] transition-colors hover:bg-white"
                     >
                       Let's Talk Now
                     </button>

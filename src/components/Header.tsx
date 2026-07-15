@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Phone, MessageSquare, Menu, X, ArrowRight } from "lucide-react";
-import { APP_CONTACT } from "../data";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 interface HeaderProps {
   onBookClick: () => void;
@@ -28,6 +27,7 @@ export default function Header({ onBookClick }: HeaderProps) {
     { label: "Market Access", href: "#channels", important: true },
     { label: "Categories", href: "#categories", important: false },
     { label: "Compliance", href: "#compliance", important: false },
+    { label: "Contact Us", href: "#contact", important: false },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -62,13 +62,10 @@ export default function Header({ onBookClick }: HeaderProps) {
           <a
             href="#"
             onClick={(e) => handleLinkClick(e, "#")}
-            className="flex flex-col select-none"
+            className="flex items-center select-none"
           >
-            <span className="font-extrabold text-base sm:text-lg lg:text-base xl:text-xl tracking-wider uppercase text-white flex items-center gap-1.5 xl:gap-2">
-              FMCG <span className="text-[var(--soft-aqua)] font-semibold text-xs lg:text-[11px] xl:text-sm border-l border-[var(--visible-border)] pl-1.5 xl:pl-2">SUPPORT UAE</span>
-            </span>
-            <span className="text-[7.5px] sm:text-[8.5px] lg:text-[7.5px] xl:text-[9px] uppercase tracking-[0.2em] xl:tracking-[0.25em] text-slate-300 mt-0.5 whitespace-nowrap">
-              Strategic Business Support & Execution
+            <span className="font-extrabold text-base sm:text-lg lg:text-base xl:text-xl tracking-wider uppercase text-white">
+              FMCG
             </span>
           </a>
 
@@ -89,16 +86,7 @@ export default function Header({ onBookClick }: HeaderProps) {
           </nav>
 
           {/* Desktop Call to Actions */}
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-            <a
-              href={APP_CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold text-white bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] border border-[var(--soft-aqua)]/50 px-3 xl:px-4 py-2 rounded-none transition-all duration-200 shadow-sm whitespace-nowrap"
-            >
-              <MessageSquare size={13} className="xl:w-4 xl:h-4" />
-              <span>Chat on WhatsApp</span>
-            </a>
+          <div className="hidden lg:flex items-center">
             <button
               onClick={onBookClick}
               className="flex items-center gap-1.5 xl:gap-2 text-[11px] xl:text-sm font-bold bg-transparent border border-white hover:bg-[var(--pearl-white)] hover:text-[var(--primary-blue)] px-3 xl:px-4 py-2 rounded-none transition-all duration-200 whitespace-nowrap"
@@ -109,16 +97,7 @@ export default function Header({ onBookClick }: HeaderProps) {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center lg:hidden space-x-3">
-            <a
-              href={APP_CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-[var(--soft-aqua-blue)] hover:text-[var(--soft-aqua-blue)] transition-colors"
-              title="Chat on WhatsApp"
-            >
-              <MessageSquare size={20} />
-            </a>
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md hover:bg-slate-800 text-slate-200 focus:outline-none"
@@ -147,15 +126,6 @@ export default function Header({ onBookClick }: HeaderProps) {
             </a>
           ))}
           <div className="pt-4 border-t border-slate-800 flex flex-col space-y-3 px-3">
-            <a
-              href={APP_CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center items-center gap-2 w-full text-center font-bold bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white py-3 transition-colors"
-            >
-              <MessageSquare size={18} />
-              <span>Chat on WhatsApp</span>
-            </a>
             <button
               onClick={() => {
                 setIsOpen(false);

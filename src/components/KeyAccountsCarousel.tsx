@@ -21,11 +21,11 @@ export default function KeyAccountsCarousel() {
     carrefourLogo,
   ];
 
-  // Double the list for continuous infinite scrolling
+  // Duplicate each row so both marquees loop continuously.
   const doubleLogos = [...logos, ...logos];
 
   return (
-    <section className="py-20 bg-[var(--pearl-white)] border-b border-[var(--visible-border)] overflow-hidden relative">
+    <section className="pt-0 pb-20 bg-[var(--pearl-white)] border-b border-[var(--visible-border)] overflow-hidden relative">
       {styleTag}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
@@ -50,26 +50,42 @@ export default function KeyAccountsCarousel() {
         </div>
       </div>
 
-      {/* Auto-scroll Area with edge fades */}
-      <div className="relative w-full overflow-hidden py-4">
+      {/* Two-direction retail network marquee */}
+      <div className="relative w-full space-y-5 overflow-hidden py-4 sm:space-y-6">
 
         {/* Left Edge Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-12 bg-gradient-to-r from-[var(--pearl-white)] to-transparent sm:w-28"></div>
 
         {/* Right Edge Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-12 bg-gradient-to-l from-[var(--pearl-white)] to-transparent sm:w-28"></div>
 
-        {/* Carousel */}
-        <div className="animate-logo-marquee gap-6 flex">
+        {/* Left-to-right row */}
+        <div className="animate-logo-marquee-right flex w-max gap-5 sm:gap-6">
           {doubleLogos.map((logo, index) => (
             <div
-              key={index}
-              className="flex-shrink-0 w-[180px] h-[90px] border border-[var(--visible-border)]/60 rounded-lg flex items-center justify-center shadow-[0_2px_8px_-3px_rgba(0,0,0,0.05)] hover:shadow-md hover:border-[var(--soft-aqua-blue)]/30 transition-all duration-300 bg-[var(--pearl-white)]/20 select-none group relative overflow-hidden"
+              key={`forward-${index}`}
+              className="group relative flex h-[84px] w-[155px] shrink-0 select-none items-center justify-center overflow-hidden rounded-lg border border-[var(--visible-border)]/60 bg-white shadow-[0_2px_8px_-3px_rgba(0,0,0,0.08)] transition-all duration-300 hover:border-[var(--soft-aqua-blue)]/50 hover:shadow-md sm:h-[90px] sm:w-[180px]"
             >
               <img
                 src={logo}
                 alt={`Demo logo ${index + 1}`}
                 className="w-full h-full object-contain p-5 transition-all duration-300 group-hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Right-to-left row */}
+        <div className="animate-logo-marquee-left flex w-max gap-5 sm:gap-6">
+          {doubleLogos.map((logo, index) => (
+            <div
+              key={`reverse-${index}`}
+              className="group relative flex h-[84px] w-[155px] shrink-0 select-none items-center justify-center overflow-hidden rounded-lg border border-[var(--visible-border)]/60 bg-white shadow-[0_2px_8px_-3px_rgba(0,0,0,0.08)] transition-all duration-300 hover:border-[var(--soft-aqua-blue)]/50 hover:shadow-md sm:h-[90px] sm:w-[180px]"
+            >
+              <img
+                src={logo}
+                alt={`Demo logo ${index + 1}`}
+                className="h-full w-full object-contain p-5 transition-all duration-300 group-hover:scale-105"
               />
             </div>
           ))}
@@ -84,7 +100,7 @@ const styleTag = (
   <style
     dangerouslySetInnerHTML={{
       __html: `
-        @keyframes logoInfiniteScroll {
+        @keyframes logoScrollLeft {
           0% {
             transform: translateX(0);
           }
@@ -94,13 +110,33 @@ const styleTag = (
           }
         }
 
-        .animate-logo-marquee {
-          display: flex;
-          width: max-content;
-          animation: logoInfiniteScroll 35s linear infinite;
+        @keyframes logoScrollRight {
+          0% {
+            transform: translateX(-50%);
+          }
+
+          100% {
+            transform: translateX(0);
+          }
         }
 
-        .animate-logo-marquee:hover {
+        .animate-logo-marquee-left,
+        .animate-logo-marquee-right {
+          display: flex;
+          width: max-content;
+          will-change: transform;
+        }
+
+        .animate-logo-marquee-left {
+          animation: logoScrollLeft 35s linear infinite;
+        }
+
+        .animate-logo-marquee-right {
+          animation: logoScrollRight 35s linear infinite;
+        }
+
+        .animate-logo-marquee-left:hover,
+        .animate-logo-marquee-right:hover {
           animation-play-state: paused;
         }
       `,

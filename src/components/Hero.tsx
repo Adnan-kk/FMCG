@@ -54,8 +54,8 @@ export default function Hero({ onBookClick }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none mb-6"
             >
-              Accelerating <span className="text-[var(--soft-aqua)]">FMCG</span> <br />
-              <span className="text-[var(--soft-aqua)]">Growth</span> Across the UAE
+              Accelerating <span className="text-[var(--soft-aqua)]">FMCG Business</span> <br />
+              <span className="text-[var(--soft-aqua)]"></span> Growth Across the UAE
             </motion.h1>
 
             {/* Subtext with absolute readability */}

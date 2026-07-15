@@ -69,7 +69,7 @@ export default function Categories({ onBookClick }: CategoriesProps) {
   };
 
   return (
-    <section id="categories" className="py-24 bg-[var(--pearl-white)] relative overflow-hidden border-b border-[var(--visible-border)]">
+    <section id="categories" className="pt-1 pb-24 bg-[var(--pearl-white)] relative overflow-hidden border-b border-[var(--visible-border)]">
       {/* Absolute graphic elements */}
       <div className="absolute left-0 bottom-0 w-96 h-96 bg-[var(--soft-aqua-blue)] rounded-full blur-3xl pointer-events-none opacity-50"></div>
 
