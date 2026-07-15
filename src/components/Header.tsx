@@ -64,9 +64,9 @@ export default function Header({ onBookClick }: HeaderProps) {
             onClick={(e) => handleLinkClick(e, "#")}
             className="flex items-center select-none"
           >
-            <span className="font-extrabold text-base sm:text-lg lg:text-base xl:text-xl tracking-wider uppercase text-white">
-              FMCG
-            </span>
+            <span className="font-extrabold text-xl sm:text-2xl lg:text-2xl xl:text-3xl tracking-wide leading-none">
+  FMCG
+</span>
           </a>
 
           {/* Desktop Navigation */}

@@ -61,22 +61,25 @@ export default function WhoWeHelp({ onBookClick }: WhoWeHelpProps) {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`w-full text-left p-5 transition-all duration-300 flex items-center justify-between border-l-4 ${
+                  aria-pressed={isActive}
+                  className={`group flex min-h-[80px] w-full items-center justify-between p-5 text-left transition-all duration-300 ${
                     isActive
-                      ? "bg-[var(--primary-blue)] text-white border-[var(--primary-blue)] shadow-md"
-                      : "bg-[var(--pearl-white)] text-[var(--dark-navy)] border-transparent hover:bg-slate-100"
+                      ? "border-l-4 border-[#244A83] bg-[#244A83] text-white shadow-md"
+                      : "border border-[#244A83]/25 bg-white text-[#102033] shadow-[0_3px_12px_rgba(16,32,51,0.05)] hover:border-[#244A83] hover:bg-[#F8FAFA] hover:text-[#1A3766] hover:shadow-[0_5px_16px_rgba(36,74,131,0.10)] focus-visible:border-[#244A83] focus-visible:bg-[#F8FAFA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244A83]/30"
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    {getIcon(item.id, isActive ? "text-white" : "text-[var(--primary-blue)]")}
+                    <div className={isActive ? "" : "flex h-10 w-10 shrink-0 items-center justify-center bg-[#DCEFF1] transition-colors duration-300 group-hover:bg-white"}>
+                      {getIcon(item.id, isActive ? "text-white" : "text-[#244A83]")}
+                    </div>
                     <div>
                       <h4 className="font-bold text-sm sm:text-base tracking-wide">{item.title}</h4>
-                      <p className={`text-xs mt-0.5 font-light ${isActive ? "text-slate-300" : "text-[var(--muted-text)]"}`}>
+                      <p className={`text-xs mt-0.5 font-light ${isActive ? "text-slate-300" : "text-[#102033]/65"}`}>
                         FMCG support structures
                       </p>
                     </div>
                   </div>
-                  <ChevronRight size={16} className={`transition-transform duration-300 ${isActive ? "rotate-90 text-[var(--primary-blue)]" : "text-[var(--muted-text)]"}`} />
+                  <ChevronRight size={16} className={`shrink-0 transition-all duration-300 ${isActive ? "rotate-90 text-white" : "text-[#244A83] group-hover:translate-x-0.5 group-hover:text-[#1A3766]"}`} />
                 </button>
               );
             })}

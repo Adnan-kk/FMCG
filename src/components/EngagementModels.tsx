@@ -90,14 +90,14 @@ export default function EngagementModels({ onBookClick }: EngagementModelsProps)
 
                   <button
                     onClick={() => onBookClick(model.title)}
-                    className={`w-full py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
+                    className={`group flex w-full items-center justify-center gap-2 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                       isHighlight
-                        ? "bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white"
+                        ? "border border-white bg-white text-[#244A83] shadow-[0_5px_16px_rgba(16,32,51,0.16)] hover:border-[#DCEFF1] hover:bg-[#DCEFF1] hover:text-[#102033] focus:outline-none focus:ring-2 focus:ring-white/70"
                         : "bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-hover)] text-white"
                     }`}
                   >
                     <span>Start Your Growth</span>
-                    <ArrowRight size={12} />
+                    <ArrowRight size={12} className={isHighlight ? "transition-transform duration-300 group-hover:translate-x-1" : ""} />
                   </button>
                 </div>
 
